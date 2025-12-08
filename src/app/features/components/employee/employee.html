@@ -1,0 +1,161 @@
+<div class="employee-container">
+  <p-toast></p-toast>
+  <p-confirmdialog></p-confirmdialog>
+
+  <p-toolbar class="toolbar-modern">
+    <div class="p-toolbar-group-left">
+      <button
+        pButton
+        label="Add Employee"
+        icon="pi pi-plus"
+        class="btn-primary-modern"
+        (click)="openCreate()"
+      ></button>
+    </div>
+  </p-toolbar>
+
+  <div class="table-card">
+    <p-table
+      [value]="employees"
+      dataKey="id"
+      [paginator]="true"
+      [rows]="10"
+      [responsiveLayout]="'scroll'"
+      [stripedRows]="true"
+      [rowHover]="true"
+      [styleClass]="'modern-table'"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Position</th>
+          <th>Date Hired</th>
+          <th>Salary</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-emp>
+        <tr>
+          <td>{{ emp.firstName }}</td>
+          <td>{{ emp.lastName }}</td>
+          <td>{{ emp.email }}</td>
+          <td>{{ emp.position }}</td>
+          <td>{{ emp.dateHired | date : "mediumDate" }}</td>
+          <td>{{ emp.salary | currency : "PHP" }}</td>
+          <td class="text-center">
+            <button
+              pButton
+              icon="pi pi-eye"
+              class="btn-icon"
+              (click)="viewEmployee(emp)"
+              pTooltip="View"
+              tooltipPosition="top"
+            ></button>
+
+            <button
+              pButton
+              icon="pi pi-pencil"
+              class="btn-icon"
+              (click)="openEdit(emp)"
+              pTooltip="Edit"
+              tooltipPosition="top"
+            ></button>
+
+            <button
+              pButton
+              icon="pi pi-trash"
+              class="btn-icon btn-danger"
+              (click)="deleteEmployee(emp)"
+              pTooltip="Delete"
+              tooltipPosition="top"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <p-dialog
+    [(visible)]="dialogVisible"
+    [modal]="true"
+    [style]="{ width: '500px' }"
+    [header]="isEdit ? 'Edit Employee' : 'Create Employee'"
+    class="dialog-modern"
+  >
+    <form [formGroup]="form">
+      <div class="p-fluid">
+        <div class="field">
+          <label>First Name</label>
+          <input pInputText formControlName="firstName" />
+        </div>
+
+        <div class="field">
+          <label>Last Name</label>
+          <input pInputText formControlName="lastName" />
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <input pInputText type="email" formControlName="email" />
+        </div>
+
+        <div class="field">
+          <label>Position</label>
+          <input pInputText formControlName="position" />
+        </div>
+
+        <div class="field">
+          <label>Date Hired</label>
+          <input pInputText type="date" formControlName="dateHired" />
+        </div>
+
+        <div class="field">
+          <label>Salary</label>
+          <input pInputText type="number" formControlName="salary" />
+        </div>
+      </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+      <button
+        pButton
+        label="Cancel"
+        class="p-button-text"
+        (click)="dialogVisible = false"
+      ></button>
+      <button
+        pButton
+        label="Save"
+        (click)="saveEmployee()"
+        [disabled]="form.invalid"
+        class="btn-primary-modern"
+      ></button>
+    </ng-template>
+  </p-dialog>
+
+  <p-dialog
+    [(visible)]="viewVisible"
+    [modal]="true"
+    header="Employee Information"
+    [style]="{ width: '450px' }"
+    class="dialog-modern"
+  >
+    <div *ngIf="selectedEmployee" class="view-details">
+      <p><strong>First Name:</strong> {{ selectedEmployee.firstName }}</p>
+      <p><strong>Last Name:</strong> {{ selectedEmployee.lastName }}</p>
+      <p><strong>Email:</strong> {{ selectedEmployee.email }}</p>
+      <p><strong>Position:</strong> {{ selectedEmployee.position }}</p>
+      <p>
+        <strong>Date Hired:</strong>
+        {{ selectedEmployee.dateHired | date : "mediumDate" }}
+      </p>
+      <p>
+        <strong>Salary:</strong>
+        {{ selectedEmployee.salary | currency : "PHP" }}
+      </p>
+    </div>
+  </p-dialog>
+</div>

@@ -1,0 +1,91 @@
+.employee-container {
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
+  background-color: #fdfaf6;
+  color: #4b2e2e;
+}
+
+.toolbar-modern {
+  background-color: transparent;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.btn-primary-modern {
+  background: linear-gradient(90deg, #8b4513, #a0522d);
+  color: white;
+  border: none;
+  box-shadow: 0 3px 8px rgba(139, 69, 19, 0.3);
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+.btn-primary-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+}
+
+.table-card {
+  background: #fff7f0;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 3px 15px rgba(139, 69, 19, 0.1);
+  transition: all 0.2s ease;
+}
+
+.modern-table th {
+  background-color: #a0522d;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modern-table tr:hover {
+  background-color: #f5e6da !important;
+}
+
+.btn-icon {
+  margin: 0 0.25rem;
+  background: #f3e9e0;
+  color: #4b2e2e;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+  background: #deb887;
+  color: white;
+  transform: scale(1.1);
+}
+
+.btn-danger {
+  background: #d2691e !important;
+  color: white !important;
+}
+
+.dialog-modern .p-dialog-content {
+  padding: 1.5rem;
+  background: #fff4eb;
+  border-radius: 12px;
+}
+
+.view-details p {
+  margin: 0.5rem 0;
+}
+
+.field {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
