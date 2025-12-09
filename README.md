@@ -1,59 +1,71 @@
-# EmployeeListApp
+# Employee List Application — Frontend (Angular with PrimeNG)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+This is the frontend application for the **Employee List Application**, built using **Angular (Standalone Components)** and a UI framework **PrimeNG**.  
+It communicates with a .NET Web API backend to perform CRUD operations for employees.
 
-## Development server
+---
 
-To start a local development server, run:
+##  Features
 
-```bash
-ng serve
-```
+-  Create a new Employee  
+-  Update existing Employee  
+-  View Employee details  
+-  Delete an Employee  
+-  Display all Employees in a list/table  
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+##  Technology Stack
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Angular 20** (Standalone Components)
+- **TypeScript**
+- **PrimeNG**
+- **RxJS & Angular HTTP Client**
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+##  Installation & Setup
 
-```bash
-ng generate --help
-```
+### 1️. **Clone the repository**
 
-## Building
+git clone https://github.com/PauloXedric/EmployeeListApp-frontend.git
 
-To build the project run:
+cd EmployeeListApp-frontend 
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 2. **Install dependencies***
 
-## Running unit tests
+npm install
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+### 3. **Configure the API base URL***
 
-## Running end-to-end tests
+Before running the application, update the backend API URL inside:
 
-For end-to-end (e2e) testing, run:
+src/environments/environment.ts
 
-```bash
-ng e2e
-```
+Modify this file as needed:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+export const environment = {
+  production: false,
+  apiBaseUrl: 'https://localhost:44314/api', // Change this to your backend's local API URL
+  
+};
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 4. **Run the Angular development serve***
+
+**npm start** or **ng serve**
+
+---
+ 
+## Backend Repository
+
+The backend (.NET Web API with Entity Framework + MSSQL) is hosted separately:
+
+https://github.com/PauloXedric/EmployeeListApp-backend
+
+
